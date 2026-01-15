@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신문 사설 검색 (Editorial Search)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <h1 class="logo">Editorial<span class="highlight">Sync</span></h1>
+            <p class="subtitle">신문 사설 데이터베이스 검색 시스템</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-container glass-panel">
+                <div class="search-controls">
+                    <div class="search-box">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="searchInput" placeholder="검색어를 입력하세요..." autocomplete="off">
+                    </div>
+                    <button id="searchBtn" class="btn-primary">검색</button>
+                </div>
+                
+                <div class="filter-group">
+                    <span class="filter-label">검색 기준:</span>
+                    <div class="radio-filters">
+                        <label class="filter-option">
+                            <input type="radio" name="searchType" value="all" checked>
+                            <span class="chip">전체</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="searchType" value="title">
+                            <span class="chip">제목</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="searchType" value="author">
+                            <span class="chip">저자</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="searchType" value="argument">
+                            <span class="chip">주장</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>데이터를 불러오는 중입니다...</p>
+            </div>
+            <div id="resultsGrid" class="results-grid">
+                <!-- Results will be injected here -->
+            </div>
+            <div id="noResults" class="no-results hidden">
+                <p>검색 결과가 없습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
